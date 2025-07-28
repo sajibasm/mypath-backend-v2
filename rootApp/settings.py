@@ -26,6 +26,9 @@ if ssl_header:
     SECURE_PROXY_SSL_HEADER = tuple(ssl_header.split(","))
 
 
+FORCE_SCRIPT_NAME = os.getenv('FORCE_SCRIPT_NAME', None)
+
+
 # Geospatial libraries
 GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
 

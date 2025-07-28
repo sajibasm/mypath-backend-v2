@@ -58,7 +58,6 @@ celery -A rootApp worker --loglevel=info
 sudo apt install supervisor
 
 
-
 ### Requirements
 Ensure you have the following packages installed, as listed in requirements.txt: <br/>
 
