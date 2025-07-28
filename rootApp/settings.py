@@ -130,11 +130,17 @@ TIME_ZONE = os.getenv('TIME_ZONE', 'UTC')
 USE_I18N = os.getenv('USE_I18N', 'True').lower() in ['true', '1', 't']
 USE_TZ = os.getenv('USE_TZ', 'True').lower() in ['true', '1', 't']
 
-# Static & Media
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Static files
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # ✅ For collectstatic
+
+# Optional if you have additional static dirs in dev
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# Media files
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Auto field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
