@@ -1,0 +1,46 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Session Details – #{{ session.id }}</h1>
+
+<h3>Session Info</h3>
+<ul>
+  <li><strong>User ID:</strong> {{ session.user_id }}</li>
+  <li><strong>Steps Taken:</strong> {{ session.steps_taken }}</li>
+  <li><strong>Wheelchair ID:</strong> {{ session.wheelchair_id }}</li>
+  <li><strong>Start:</strong> {{ session.start_timestamp|date:"Y-m-d H:i:s" }}</li>
+  <li><strong>End:</strong> {{ session.end_timestamp|date:"Y-m-d H:i:s" }}</li>
+  <li><strong>Duration:</strong> {{ session.duration_ms }} ms</li>
+  <li><strong>Version:</strong> {{ session.version }}</li>
+  <li><strong>Start Quality:</strong> ({{ session.start_quality_1 }}, {{ session.start_quality_2 }}, {{ session.start_quality_3 }})</li>
+  <li><strong>End Quality:</strong> ({{ session.end_quality_1 }}, {{ session.end_quality_2 }})</li>
+</ul>
+
+<h3>Sensor Data</h3>
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Timestamp</th><th>Event</th><th>Accel (X,Y,Z)</th><th>Gyro (X,Y,Z)</th>
+      <th>Magnet (X,Y,Z)</th><th>Latitude</th><th>Longitude</th><th>Pressure</th><th>Speed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for s in sensor_data %}
+    <tr>
+      <td>{{ s.timestamp }}</td>
+      <td>{{ s.event }}</td>
+      <td>({{ s.accel_x }}, {{ s.accel_y }}, {{ s.accel_z }})</td>
+      <td>({{ s.gyro_x }}, {{ s.gyro_y }}, {{ s.gyro_z }})</td>
+      <td>({{ s.mag_x }}, {{ s.mag_y }}, {{ s.mag_z }})</td>
+      <td>{{ s.latitude }}</td>
+      <td>{{ s.longitude }}</td>
+      <td>{{ s.pressure }}</td>
+      <td>{{ s.speed }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="9">No sensor data found for this session.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

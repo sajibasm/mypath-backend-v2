@@ -1,0 +1,7 @@
+{% extends "admin/change_form.html" %}
+{% load static %}  <!-- Load the static template tag -->
+
+{% block extrahead %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'admin/navigation/segmentpoints/js/segmentpoints.js' %}"></script>
+{% endblock %}

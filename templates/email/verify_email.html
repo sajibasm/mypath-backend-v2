@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Verify Your Email</title></head>
+<body style="font-family: Arial, sans-serif;">
+  <h2>Hello {{ name }},</h2>
+  <p>Thanks for registering with MyPath. Please verify your email address by clicking the button below:</p>
+  <p style="margin: 20px 0;">
+    <a href="{{ verification_link }}" style="padding: 12px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 6px;">Verify Email</a>
+  </p>
+  <p>If the button doesn't work, copy and paste this link into your browser:</p>
+  <p><a href="{{ verification_link }}">{{ verification_link }}</a></p>
+  <p>Regards,<br>MyPath Team</p>
+</body>
+</html>

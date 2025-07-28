@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django App{% endblock %}</title>
+    {% load static %}
+    
+    <!-- Add jQuery before your custom scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+    <!-- Add custom JS files that depend on jQuery after jQuery is loaded -->
+</head>
+
+<body>
+    <header>
+        <!-- Common header content -->
+    </header>
+
+    <main>
+        <h1>Hello</h1>
+        {% block content %}
+        <!-- This is where page-specific content will be injected -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Common footer content -->
+    </footer>
+</body>
+</html>

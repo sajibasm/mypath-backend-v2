@@ -1,0 +1,77 @@
+# ----------------------------
+# Python Cache and Artifacts
+# ----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.so
+
+# ----------------------------
+# Django Artifacts
+# ----------------------------
+*.log
+*.pot
+*.pyc
+*.sqlite3
+*.db
+db.sqlite3
+*.bak
+
+# ----------------------------
+# Virtual Environment
+# ----------------------------
+venv/
+ENV/
+env/
+.venv/
+
+# ----------------------------
+# Environment Files
+# ----------------------------
+.env
+.env.*
+!.env.sample     # Allow .env.sample to be committed
+
+# ----------------------------
+# Migrations
+# ----------------------------
+device/migrations/csv/device_sensor_data.csv  # Only exclude this large file
+# NOTE: Don't ignore entire migrations folder — all migration scripts will be committed
+
+# ----------------------------
+# Static & Media
+# ----------------------------
+/static/
+/staticfiles/
+/media/
+/mediafiles/
+
+# ----------------------------
+# Redis / Database Dumps
+# ----------------------------
+dump.rdb
+
+# ----------------------------
+# IDE / Editor Configs
+# ----------------------------
+.vscode/
+.idea/
+
+# ----------------------------
+# Coverage / Testing / CI
+# ----------------------------
+.coverage
+htmlcov/
+.pytest_cache/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# ----------------------------
+# OS and Git Artifacts
+# ----------------------------
+.DS_Store
+*.orig
