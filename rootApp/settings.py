@@ -145,14 +145,14 @@ USE_I18N = os.getenv('USE_I18N', 'True').lower() in ['true', '1', 't']
 USE_TZ = os.getenv('USE_TZ', 'True').lower() in ['true', '1', 't']
 
 # Static files
-STATIC_URL = '/static/'
+STATIC_URL = FORCE_SCRIPT_NAME + '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # ✅ For collectstatic
 
 # Optional if you have additional static dirs in dev
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Media files
-MEDIA_URL = '/media/'
+MEDIA_URL = FORCE_SCRIPT_NAME + '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
