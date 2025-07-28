@@ -13,7 +13,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 FERNET_SECRET_KEY = os.getenv('FERNET_SECRET_KEY').encode()
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+
+# Allow multiple hosts if comma-separated
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+
+# CSRF trusted origins (comma-separated)
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+
+# Parse SECURE_PROXY_SSL_HEADER from comma-separated value
+ssl_header = os.getenv("SECURE_PROXY_SSL_HEADER", "")
+if ssl_header:
+    SECURE_PROXY_SSL_HEADER = tuple(ssl_header.split(","))
+
 
 # Geospatial libraries
 GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
